@@ -7,6 +7,7 @@ public class DieRestartScript : MonoBehaviour
     [SerializeField] Menu _menu;
     [SerializeField] HealthScript playerHp;
 
+    private bool restart = false;
     private Transform playerTr;
     void Start()
     {
@@ -14,13 +15,19 @@ public class DieRestartScript : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (playerHp.GetHealth() <= 0 || playerTr.position.y <= -5)
+        if (!restart)
         {
-            Invoke("DieRestart", 2);
+            if (playerHp.GetHealth() <= 0 || playerTr.position.y <= -5)
+            {
+                restart= true;
+                Invoke("DieRestart", 2);
+            }
         }
+        
     }
     private void DieRestart()
-    { 
+    {
+        restart = false;
         _menu.Restart();
     }
 

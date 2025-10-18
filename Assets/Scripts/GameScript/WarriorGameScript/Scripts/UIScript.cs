@@ -20,5 +20,8 @@ public class UIScript : MonoBehaviour
     {
         CoinText.text = CoinManager.coinsCount.ToString();
     }
-
+    void OnDestroy()
+    {
+        CoinManager.OnAddCoin.RemoveListener(UiCoin);
+    }
 }
