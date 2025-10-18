@@ -14,7 +14,7 @@ public class UIScript : MonoBehaviour
     }
     void FixedUpdate()
     {
-        HpBarImage.fillAmount =  PlayerHp.GetHealth() / 100;
+        HpBarImage.fillAmount =  PlayerHp.GetHealth() / PlayerHp.GetMaxHealth();
     }
     private void UiCoin(int coin)
     {

@@ -64,7 +64,7 @@ public class AnimationScript : MonoBehaviour
     }
     private void HitDieCheck()
     {
-       if(_myHealth.GetHealth()!=_lastHealth)
+       if(_myHealth.GetHealth() !=_lastHealth)
         {
             if (_myHealth.GetHealth() <= 0)
             {
